@@ -1,0 +1,69 @@
+@startuml packages_ProjectName
+set namespaceSeparator none
+package "src" as src {
+}
+package "src.components" as src.components {
+}
+package "src.components.AdminDashboard" as src.components.AdminDashboard {
+}
+package "src.components.AdminDashboard.MVC" as src.components.AdminDashboard.MVC {
+}
+package "src.components.SellerDashboard" as src.components.SellerDashboard {
+}
+package "src.components.SellerDashboard.MVC" as src.components.SellerDashboard.MVC {
+}
+package "src.components.application_facade" as src.components.application_facade {
+}
+package "src.db" as src.db {
+}
+package "src.db.orm" as src.db.orm {
+}
+package "src.db.orm.base_model" as src.db.orm.base_model {
+}
+package "src.db.orm.cliente_model" as src.db.orm.cliente_model {
+}
+package "src.db.orm.detalle_venta_model" as src.db.orm.detalle_venta_model {
+}
+package "src.db.orm.movimiento_inventario_model" as src.db.orm.movimiento_inventario_model {
+}
+package "src.db.orm.producto_model" as src.db.orm.producto_model {
+}
+package "src.db.orm.proveedor_model" as src.db.orm.proveedor_model {
+}
+package "src.db.orm.suministra_model" as src.db.orm.suministra_model {
+}
+package "src.db.orm.trabajador_model" as src.db.orm.trabajador_model {
+}
+package "src.db.orm.venta_model" as src.db.orm.venta_model {
+}
+package "src.main" as src.main {
+}
+package "src.utils" as src.utils {
+}
+package "src.utils.config" as src.utils.config {
+}
+package "src.utils.logger" as src.utils.logger {
+}
+package "src.utils.usoLogger" as src.utils.usoLogger {
+}
+src.db.orm --> src.db.orm.base_model
+src.db.orm --> src.db.orm.cliente_model
+src.db.orm --> src.db.orm.detalle_venta_model
+src.db.orm --> src.db.orm.movimiento_inventario_model
+src.db.orm --> src.db.orm.producto_model
+src.db.orm --> src.db.orm.proveedor_model
+src.db.orm --> src.db.orm.suministra_model
+src.db.orm --> src.db.orm.trabajador_model
+src.db.orm --> src.db.orm.venta_model
+src.db.orm.cliente_model --> src.db.orm.base_model
+src.db.orm.detalle_venta_model --> src.db.orm.base_model
+src.db.orm.movimiento_inventario_model --> src.db.orm.base_model
+src.db.orm.producto_model --> src.db.orm.base_model
+src.db.orm.proveedor_model --> src.db.orm.base_model
+src.db.orm.suministra_model --> src.db.orm.base_model
+src.db.orm.trabajador_model --> src.db.orm.base_model
+src.db.orm.venta_model --> src.db.orm.base_model
+src.main --> src.components.application_facade
+src.main --> src.utils.config
+src.utils.usoLogger --> src.utils.logger
+@enduml

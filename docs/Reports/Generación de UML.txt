@@ -1,0 +1,3 @@
+Generar .puml : C:PROJECT PATH> pyreverse -o puml -p ProjectName src
+Instala pyreverse: pip install pylint
+Generar png o svg o ver: vs code plugin de PlantUML 

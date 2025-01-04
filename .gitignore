@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/
+*.log
+
+# Bases de datos
+src/DataBase/Data/*.db
+
+# Archivos temporales
+temp/
+*.tmp
+
+# Binarios
+bin/
+*.exe
+*.dll
+
+# Otros
+salida.txt

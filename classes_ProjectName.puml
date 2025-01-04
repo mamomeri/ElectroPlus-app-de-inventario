@@ -1,0 +1,74 @@
+@startuml classes_ProjectName
+set namespaceSeparator none
+class "ApplicationFacade" as src.components.application_facade.ApplicationFacade {
+  admin_controller
+  admin_view
+  app : App, NoneType
+  login_controller
+  authenticate_user()
+  initialize_app()
+  navigate_to_dashboard(user_role)
+  run()
+}
+class "BaseModel" as src.db.orm.base_model.BaseModel {
+  db_path
+  execute_query(query, params)
+  fetch_all(query, params)
+  fetch_one(query, params)
+}
+class "ClienteModel" as src.db.orm.cliente_model.ClienteModel {
+  create_cliente(nombre, contacto, direccion)
+  delete_cliente(cliente_id)
+  get_clientes()
+  update_cliente(cliente_id, nombre, contacto, direccion)
+}
+class "DetalleVentaModel" as src.db.orm.detalle_venta_model.DetalleVentaModel {
+  create_detalle_venta(id_venta, id_producto, cantidad, precio_unitario)
+  get_detalle_venta(venta_id)
+}
+class "MovimientoInventarioModel" as src.db.orm.movimiento_inventario_model.MovimientoInventarioModel {
+  create_movimiento(id_producto, id_trabajador, cantidad, fecha)
+  delete_movimiento(movimiento_id)
+  get_movimientos()
+  update_movimiento(movimiento_id, id_producto, id_trabajador, cantidad, fecha)
+}
+class "ProductoModel" as src.db.orm.producto_model.ProductoModel {
+  create_producto(nombre, categoria, descripcion, modelo, precio_al_por_menor, stock, detalles_tecnicos)
+  delete_producto(producto_id)
+  get_productos()
+  update_producto(producto_id, nombre, categoria, descripcion, modelo, precio_al_por_menor, stock, detalles_tecnicos)
+}
+class "ProveedorModel" as src.db.orm.proveedor_model.ProveedorModel {
+  create_proveedor(nombre, contacto)
+  delete_proveedor(proveedor_id)
+  get_proveedores()
+  update_proveedor(proveedor_id, nombre, contacto)
+}
+class "SuministraModel" as src.db.orm.suministra_model.SuministraModel {
+  create_suministro(id_proveedor, id_producto, cantidad, fecha, precio_al_por_mayor)
+  delete_suministro(suministro_id)
+  get_suministros()
+  update_suministro(suministro_id, id_proveedor, id_producto, cantidad, fecha, precio_al_por_mayor)
+}
+class "TrabajadorModel" as src.db.orm.trabajador_model.TrabajadorModel {
+  create_trabajador(nombre, tipo, contraseña)
+  delete_trabajador(trabajador_id)
+  get_trabajadores()
+  update_trabajador(trabajador_id, nombre, tipo, contraseña)
+  verify_trabajador(nombre, contraseña)
+}
+class "VentaModel" as src.db.orm.venta_model.VentaModel {
+  create_venta(id_cliente, id_trabajador, fecha, metodo_pago, observaciones)
+  delete_venta(venta_id)
+  get_ventas()
+  update_venta(venta_id, id_cliente, id_trabajador, fecha, metodo_pago, observaciones)
+}
+src.db.orm.cliente_model.ClienteModel --|> src.db.orm.base_model.BaseModel
+src.db.orm.detalle_venta_model.DetalleVentaModel --|> src.db.orm.base_model.BaseModel
+src.db.orm.movimiento_inventario_model.MovimientoInventarioModel --|> src.db.orm.base_model.BaseModel
+src.db.orm.producto_model.ProductoModel --|> src.db.orm.base_model.BaseModel
+src.db.orm.proveedor_model.ProveedorModel --|> src.db.orm.base_model.BaseModel
+src.db.orm.suministra_model.SuministraModel --|> src.db.orm.base_model.BaseModel
+src.db.orm.trabajador_model.TrabajadorModel --|> src.db.orm.base_model.BaseModel
+src.db.orm.venta_model.VentaModel --|> src.db.orm.base_model.BaseModel
+@enduml
