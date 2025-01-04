@@ -2,21 +2,23 @@
 __pycache__/
 *.pyc
 
-# Logs
+# Logs (pero no ignores .gitkeep)
 logs/
-*.log
+!logs/.gitkeep
 
-# Bases de datos
-src/DataBase/Data/*.db
+# Bases de datos (pero no ignores .gitkeep)
+#src/DataBase/Data/*.db
+!src/DataBase/Data/.gitkeep
 
-# Archivos temporales
+# Archivos temporales (pero no ignores .gitkeep)
 temp/
-*.tmp
+!temp/.gitkeep
 
 # Binarios
 bin/
 *.exe
 *.dll
+!bin/.gitkeep
 
 # Otros
 salida.txt
